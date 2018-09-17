@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
   user = {};
+  badLogin = false;
   value;
   socialPlatformProvider;
   userId;
@@ -76,9 +77,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.badLogin = false;
     console.log(this.form.value);
     this.appService.logIn(this.form.value).subscribe(data => {
       console.log(data);
+      if (data === null) {
+        this.badLogin = true;
+        console.log(data);
+      } else {
+        localStorage.setItem("userId", data.userId);
+        this._route.navigate(["profile"]);
+      }
       localStorage.setItem("userId", data.userId);
       this.toastr.success("Sign In Successful");
       this._route.navigate(["profile"]);
