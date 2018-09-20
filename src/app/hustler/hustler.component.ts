@@ -5,19 +5,11 @@ import { SocketService } from "../user/socket.service";
 import { User } from "../user/user";
 
 @Component({
-  selector: "app-jobslist",
-  templateUrl: "./jobslist.component.html",
-  styleUrls: ["./jobslist.component.css"]
+  selector: "app-hustler",
+  templateUrl: "./hustler.component.html",
+  styleUrls: ["./hustler.component.css"]
 })
-// export class JobslistComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-export class JobsListComponent implements OnInit {
+export class HustlerComponent implements OnInit {
   jobsList: Jobs[] = [];
   public userId: any;
   currentProfile: User = new User();

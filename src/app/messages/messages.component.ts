@@ -28,6 +28,8 @@ export class MessagesComponent implements OnInit {
   public authToken: any;
   public userInfo: any;
   public userId: any;
+  // public from: any;
+  // public toUserId: any;
   public disconnectedSocket: boolean;
 
   showComposePopup = function(compose) {
@@ -42,8 +44,10 @@ export class MessagesComponent implements OnInit {
 
   showPopup = function(message, content) {
     console.log("showing popup");
-    this.isPopupVisible = true; // Not sure if necessary anymore
+    this.isPopupVisible = true;
     this.selectedMessage = message;
+    // this.selectedMesssage.fromUserId = from; //added 09/18
+    // this.selectedMessage.toUserId = this.toUser; // added 09/18
     this.modalService.open(content, { centered: true });
   };
 
@@ -54,30 +58,31 @@ export class MessagesComponent implements OnInit {
 
   messages = this.sentMessages;
 
-  // messages = [
-  //   {
-  //     author: "Jason",
-  //     toUser: "me",
-  //     subject: "Hello World!",
-  //     date: "Sept 1",
-  //     message: "I love Angular! I wonder if it loves me back?"
-  //   },
-  //   {
-  //     author: "Angela",
-  //     toUser: "me",
-  //     subject: "Yeah, I don't know about Angular.",
-  //     date: "Sept 3",
-  //     message:
-  //       "Angular and I are just friends! Hmm, but I don't mind getting to know it."
-  //   },
-  //   {
-  //     author: "Mio",
-  //     toUser: "me",
-  //     subject: "Wassup? ",
-  //     date: "Aug 28",
-  //     message: "What about Java? Now that's for me!"
-  //   }
-  // ];
+  messages1 = [
+    {
+      author: "Jason",
+      toUser: " ",
+      subject: "Hello World!",
+      date: "Sept 1",
+      message: "I love Angular! I wonder if it loves me back?"
+    },
+    {
+      author: "Angela",
+      toUser: " ",
+      subject: "Yeah, I don't know about Angular.",
+      date: "Sept 3",
+      message:
+        "Angular and I are just friends! Hmm, but I don't mind getting to know it."
+    },
+    {
+      author: "Mio",
+      toUser: " ",
+      subject: "Wassup? ",
+      date: "Aug 28",
+      message: "What about Java? Now that's for me!"
+    }
+  ];
+
   constructor(
     private messageService: MessageService,
     private appService: AppService,
@@ -103,10 +108,15 @@ export class MessagesComponent implements OnInit {
   }
 
   sendMessage = function() {
+    // this.composeMesssage.fromUserId = this.currentProfile.userId; //Does not like this
+    // this.composeMesssage.author = this.currentProfile.userId;// Does not like this
+    this.composeMessage.toUserId = this.toUser; // added 09/18
+
+    // this.composeMessage.toUserId = 1; // this is optional to see/  may remove after placing ngModel in the html
     this.composeMessage.toId = this.currentProfile.userId;
     this.composeMessage.date = new Date();
-    this.composeMessage.toUser;
-    this.composeMessage.author;
+    // this.composeMessage.toUser;
+    // this.composeMessage.author;
     console.log(this.composeMessage);
     this.messageService.addMessage(this.composeMessage).subscribe(data => {
       this.composeMessage.toId = this.currentProfile.userId;

@@ -1,7 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ContactComponent } from "./contact/contact.component";
-import { AboutComponent } from "./about/about.component";
 import { JobsComponent } from "./jobs/jobs.component";
 import { JobsListComponent } from "./jobslist/jobslist.component";
 import { MessagesComponent } from "./messages/messages.component";
@@ -12,6 +10,7 @@ import { AuthorizationGuard } from "./user/authorization/authorization.guard";
 import { LoginLayoutComponent } from "./user/layouts/login-layout/login-layout.component";
 import { ProfileLayoutComponent } from "./user/layouts/profile-layout/profile-layout.component";
 import { EditComponent } from "./edit/edit.component";
+import { HustlerComponent } from "./hustler/hustler.component";
 
 const routes: Routes = [
   {
@@ -20,10 +19,11 @@ const routes: Routes = [
     canActivate: [AuthorizationGuard],
     children: [
       { path: "profile", component: ProfileComponent },
-      { path: "edit", component: EditComponent },
+      { path: "edit/:id", component: EditComponent },
       { path: "jobs", component: JobsComponent },
       { path: "jobslist", component: JobsListComponent },
-      { path: "messages", component: MessagesComponent }
+      { path: "messages", component: MessagesComponent },
+      { path: "hustler", component: HustlerComponent }
     ]
   },
   {
@@ -31,9 +31,7 @@ const routes: Routes = [
     component: LoginLayoutComponent,
     children: [
       { path: "login", component: LoginComponent },
-      { path: "signup", component: SignupComponent },
-      { path: "contact", component: ContactComponent },
-      { path: "about", component: AboutComponent }
+      { path: "signup", component: SignupComponent }
     ]
   },
   { path: "**", redirectTo: "" }

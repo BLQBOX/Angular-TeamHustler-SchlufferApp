@@ -32,9 +32,10 @@ export class JobsService {
   removeJobs(id: number) {
     this.http.delete(this.url + "/" + id).subscribe();
   }
-  editJobs(id: number, jobs: Jobs) {
+  editJobs(jobs: Jobs) {
+    console.log(jobs);
     // this.jobsService.editJobs(id, jobs);
-    this.http.put(this.url + "/" + id, jobs).subscribe();
+    return this.http.put(this.url + "/" + jobs.id, jobs);
   }
 
   constructor(private http: HttpClient) {}

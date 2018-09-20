@@ -13,6 +13,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from "angular5-social-login";
+import { AvatarModule } from "ng2-avatar";
 
 @Component({
   selector: "app-login",
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
   socialPlatformProvider;
   userId;
   data;
+  avatar;
 
   constructor(
     private fb: FormBuilder,

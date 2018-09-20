@@ -1,9 +1,17 @@
-<div id="jumbo1" class="jumbotron">
-  <!-- <img src="assets/Capture.PNG" class="rounded-circle" height="25" width="25">
-    <h2>Schluffer</h2>
-    <p>Don't worry just schluff It off</p> -->
+<div id="image">
+  <div class="row">
+    <div class="col-md-6">
+      <a routerLink="/profile" class="btn btn-link"> <button type="button" class="btn btn-info">Back To Profile
+        </button> </a>
+    </div>
+  </div>
 
-  Type of Job: <select [(ngModel)]="jobs.type">
+  <div class="card">
+    <div class="card-header">
+      Create A Job
+    </div>
+
+    <!-- Type of Job: <select [(ngModel)]="jobs.type">
     <option value="Household">Household</option>
     <option value="Automotive">Automotive</option>
     <option value="Pets">Pets</option>
@@ -12,27 +20,51 @@
     <option value="Technical">Technical</option>
     <option value="Rideshare">Rideshare</option>
 
+  </select> -->
+    <div class="card-body">
+      <div class="form-group">
+        <label for="type">Category</label>
+        <select [(ngModel)]="jobs.type">
+          <option value="Household">Household</option>
+          <option value="Automotive">Automotive</option>
+          <option value="Pets">Pets</option>
+          <option value="Errands">Errands</option>
+          <option value="Labor">Labor</option>
+          <option value="Technical">Technical</option>
+          <option value="Rideshare">Rideshare</option>
+        </select>
+
+        <br>
+
+        <!-- Description of Job: <input type="text" [(ngModel)]="jobs.description"> -->
+        <label for="description">Description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="jobs.description">
 
 
-  </select>
-  <br> <br> Description of Job: <input type="text" [(ngModel)]="jobs.description">
+        <br>
 
-  <br><br> Price of Job:
-  <!-- <input type="number" [(ngModel)]="jobs.price" required [min]="1"> -->
-  <select [(ngModel)]="jobs.price">
-    <option value="10">10</option>
-    <option value="20">20</option>
-    <option value="40">40</option>
-    <option value="50">50</option>
-  </select>
-  <br>
-  <button (click)="addJobs()"><fa id="fa1" name="save"></fa></button>
-  <br>
-  <br>
-  <a class="" routerLink="/jobslist">See all of my added jobs</a>
+        <!-- Price of Job:
+      <select [(ngModel)]="jobs.price">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+      </select> -->
+        <label for="price">Price</label>
+        <select [(ngModel)]="jobs.price">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+      <div class="btn-group btn-group-justified">
+
+        <button type="button" class="btn btn-warning" (click)="addJobs()">Save</button>
+
+
+        <a href="#" class="btn btn-success" routerLink="/jobslist">See all of my added jobs</a>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- <div id="jumbo2" class="jumbotron">
-  <input name="term" type="search" placeholder="type in key word to search" aria-label="Search" [(ngModel)]="term">
-</div> -->
-
-<!-- <app-jobslist></app-jobslist> -->

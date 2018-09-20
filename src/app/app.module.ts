@@ -2,8 +2,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RoutingModule } from ".//routing.module";
 import { AppComponent } from "./app.component";
-import { AboutComponent } from "./about/about.component";
-import { ContactComponent } from "./contact/contact.component";
 import { JobsComponent } from "./jobs/jobs.component";
 import { FooterComponent } from "./nav/footer/footer.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -36,6 +34,10 @@ import { LoginSigninHeaderComponent } from "./nav/login-signin-header/login-sign
 import { LoginSigninFooterComponent } from "./nav/login-signin-footer/login-signin-footer.component";
 import { EditComponent } from "./edit/edit.component";
 import { ToastrModule } from "ngx-toastr";
+import { AvatarModule } from "ngx-avatar";
+import { HustlerComponent } from "./hustler/hustler.component";
+
+// import { AvatarModule } from "ng2-avatar";
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig([
@@ -56,8 +58,6 @@ export function getAuthServiceConfigs() {
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
-    ContactComponent,
     JobsComponent,
     HeaderComponent,
     FooterComponent,
@@ -70,7 +70,8 @@ export function getAuthServiceConfigs() {
     LoginLayoutComponent,
     LoginSigninHeaderComponent,
     LoginSigninFooterComponent,
-    EditComponent
+    EditComponent,
+    HustlerComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -87,7 +88,8 @@ export function getAuthServiceConfigs() {
     Ng2SearchPipeModule,
     AppMaterialModule,
     SocialLoginModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AvatarModule
   ],
 
   providers: [

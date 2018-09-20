@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Jobs } from "../jobs/jobs";
 import { JobsService } from "../jobs/jobs.service";
 
@@ -22,17 +22,21 @@ export class EditComponent implements OnInit {
       );
   }
 
-  deleteJobs(id: number) {
+  deleteJob(id: number) {
     this.jobsService.removeJobs(id);
   }
 
-  editJobs(id: number, jobs: Jobs) {
-    this.jobsService.editJobs(id, jobs);
+  editJob() {
+    this.jobsService.editJobs(this.jobs).subscribe(data => {
+      console.log(data);
+      this._route.navigate(["jobslist"]);
+    });
   }
 
   constructor(
     private jobsService: JobsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _route: Router
   ) {}
   // constructor(private route: ActivatedRoute) {}
 

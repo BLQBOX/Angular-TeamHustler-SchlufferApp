@@ -18,7 +18,7 @@
         }
         
         tr:nth-child(even) {
-            background-color: rgba(131, 131, 131, 0.418);
+            background-color: rgba(160, 164, 168, 0.486);
         }
     </style>
 </head>
@@ -34,10 +34,10 @@
                     <th>Job Price</th>
                     <th>Job Id</th>
                     <th>Username</th>
-                    <th>Delete</th>
-                    <!-- <th>Message</th> -->
-                    <th>Edit</th>
-                    <!-- <th>Country</th> -->
+                    <!-- <th>Delete</th> -->
+                    <th>Message</th>
+                    <!-- <th>Edit</th> -->
+
                 </tr>
                 <tr *ngFor="let jobs  of jobsList | filter: term">
                     <td>{{jobs.type}}</td>
@@ -47,23 +47,14 @@
                     <td>{{currentProfile.username}}</td>
 
                     <td>
-                        <a routerLink="jobslist/{{jobs.id}}" class="btn btn-secondary btn-sm">
-                            <button (click)="deleteJobs(jobs.id)">
-                <fa id="fa2" name="trash" animation=""></fa>
-              </button></a>
+                        <!-- <a class="" routerLink="/messages"><button> <fa id="fa3" name="envelope-square" animation="" size="3x" class="btn btn-secondary btn-sm">
+              </button></a> -->
+                        <button routerLink="/messages"><fa id="fa3" name="envelope-square" animation="" size="3x" class="btn btn-secondary btn-sm"></fa>
+              </button>
                     </td>
-                    <!-- <td>
-                        <a class="" routerLink="/messages"><button> <fa id="fa3" name="envelope-square" animation="" class="btn btn-secondary btn-sm"></fa>
-              </button></a>
-                    </td> -->
-                    <td>
-                        <a class="" routerLink="/edit/{{jobs.id}}"><button><fa id="fa3" name="edit" animation=""></fa></button></a>
-                    </td>
+
                 </tr>
-
-
             </table>
-
 
             <div *ngFor="let jobs of jobsList | filter: term">
 
